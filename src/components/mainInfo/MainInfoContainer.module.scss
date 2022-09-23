@@ -1,0 +1,28 @@
+.container {
+  width: 57.3rem;
+  margin: 5.6rem 16.5rem;
+
+  .quote__container {
+    display: flex;
+    align-items: flex-start;
+
+    & img {
+      margin-left: 1.6rem;
+    }
+
+    .quote {
+      max-width: 54rem;
+
+      & p {
+        font-weight: 400;
+        opacity: 0.8;
+        margin-bottom: 1.4rem;
+      }
+
+      & span {
+        font-weight: 700;
+        opacity: 0.8;
+      }
+    }
+  }
+}
