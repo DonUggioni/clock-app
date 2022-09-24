@@ -1,13 +1,21 @@
+@use '../../Sass/variables';
+
 .container {
-  width: 57.3rem;
+  max-width: 57.3rem;
+  width: 100%;
   margin: 5.6rem 16.5rem;
 
   .quote__container {
     display: flex;
     align-items: flex-start;
+    margin-bottom: 26.3rem;
+    width: 100%;
 
-    & img {
+    & button {
+      border: none;
+      background-color: transparent;
       margin-left: 1.6rem;
+      cursor: pointer;
     }
 
     .quote {
@@ -17,12 +25,57 @@
         font-weight: 400;
         opacity: 0.8;
         margin-bottom: 1.4rem;
+        line-height: 1.6;
+        font-size: variables.$text-fs-l;
       }
 
       & span {
         font-weight: 700;
         opacity: 0.8;
+        letter-spacing: 0.5px;
       }
+    }
+  }
+
+  .location__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4.6rem;
+    width: 100%;
+
+    .greeting__container {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+
+      & h2 {
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.4rem;
+      }
+    }
+
+    .hour__info {
+      display: flex;
+
+      & h1 {
+        font-size: variables.$h1-fs-l;
+        line-height: 0.75;
+        letter-spacing: 0.6rem;
+      }
+
+      & span {
+        align-self: flex-end;
+        font-size: variables.$h2-fs-l;
+        font-weight: 300;
+        line-height: 0.7;
+      }
+    }
+
+    & h3 {
+      font-size: variables.$h3-fs-l;
+      text-transform: uppercase;
+      letter-spacing: 0.48rem;
     }
   }
 }

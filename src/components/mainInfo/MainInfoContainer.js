@@ -5,7 +5,7 @@ import classes from './MainInfoContainer.module.scss';
 
 function MainInfoContainer(props) {
   return (
-    <div className={classes.container}>
+    <main className={classes.container}>
       <div className={classes.quote__container}>
         <div className={classes.quote}>
           <p>
@@ -15,18 +15,22 @@ function MainInfoContainer(props) {
           </p>
           <span>Ada Lovelace</span>
         </div>
-        <img src={refreshIcon} alt="refresh icon" />
+        <button>
+          <img src={refreshIcon} alt="refresh icon" />
+        </button>
       </div>
       <div className={classes.location__info}>
-        <img src={sunIcon} alt="sun icon" />
-        <h2>GOOD MORNING, IT’S CURRENTLY</h2>
+        <div className={classes.greeting__container}>
+          <img src={sunIcon} alt="sun icon" />
+          <h2>GOOD MORNING, IT’S CURRENTLY</h2>
+        </div>
         <div className={classes.hour__info}>
           <h1>11:37</h1>
           <span>BST</span>
         </div>
         <h3 className={classes.location}>IN LONDON, UK</h3>
       </div>
-    </div>
+    </main>
   );
 }
 
