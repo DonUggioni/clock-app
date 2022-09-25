@@ -1,3 +1,5 @@
+import Button from '../UI/Button';
+
 import sunIcon from '../../assets/icons/icon-sun.svg';
 import refreshIcon from '../../assets/icons/icon-refresh.svg';
 
@@ -29,6 +31,7 @@ function MainInfoContainer(props) {
           <span>BST</span>
         </div>
         <h3 className={classes.location}>IN LONDON, UK</h3>
+        <Button />
       </div>
     </main>
   );
