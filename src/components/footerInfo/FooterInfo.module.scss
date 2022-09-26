@@ -12,6 +12,9 @@
   backdrop-filter: blur(10px);
   padding: 7.4rem 16.5rem;
   color: variables.$cl-black;
+  transform: translateY(20%);
+  transition: all 1s;
+  opacity: 0;
 
   .data__container {
     display: grid;
@@ -27,4 +30,9 @@
       font-size: variables.$h2-fs-l;
     }
   }
+}
+
+.active {
+  transform: translateY(-94%);
+  opacity: 1;
 }

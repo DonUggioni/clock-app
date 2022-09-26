@@ -19,6 +19,7 @@ body {
   font-size: variables.$text-fs-m;
   height: 100vh;
   color: variables.$cl-white;
-  // overflow: hidden;
-  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-items: baseline;
 }
