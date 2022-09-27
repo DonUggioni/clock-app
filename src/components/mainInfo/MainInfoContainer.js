@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { ClickHandlerContext } from '../../store/click-handler-context';
+import { APIRequestContext } from '../../store/api-requests';
 import Button from '../UI/Button';
 
 import sunIcon from '../../assets/icons/icon-sun.svg';
@@ -9,6 +10,12 @@ import classes from './MainInfoContainer.module.scss';
 
 function MainInfoContainer() {
   const { isActive } = useContext(ClickHandlerContext);
+  const { quote } = useContext(APIRequestContext);
+
+  const randomQuote = {
+    quote: quote.content,
+    author: quote.author,
+  };
 
   const containerClassShow = `${classes.container} ${classes.active}`;
   const containerClassHide = `${classes.container}`;
@@ -18,12 +25,8 @@ function MainInfoContainer() {
     <main className={containerClass}>
       <div className={classes.quote__container}>
         <div className={classes.quote}>
-          <p>
-            “The science of operations, as derived from mathematics more
-            especially, is a science of itself, and has its own abstract truth
-            and value.”
-          </p>
-          <span>Ada Lovelace</span>
+          <p>{randomQuote.quote}</p>
+          <span>{randomQuote.author}</span>
         </div>
         <button>
           <img src={refreshIcon} alt="refresh icon" />
@@ -40,7 +43,7 @@ function MainInfoContainer() {
               <h1>11:37</h1>
               <span>BST</span>
             </div>
-            <h3 className={classes.location}>IN LONDON, UK</h3>
+            <h3 className={classes.location}>IN London, UK</h3>
           </div>
           <Button />
         </div>
