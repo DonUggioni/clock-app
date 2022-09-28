@@ -1,46 +1,38 @@
 import { createContext, useEffect, useState } from 'react';
+import { API_KEY } from './key';
 
 export const APIRequestContext = createContext({});
+
+const apiKey = API_KEY;
 
 function APIRequestProvider(props) {
   const [quote, setQuote] = useState('');
   const [location, setLocation] = useState({});
-  const [coords, setCoords] = useState({});
-
-  console.log(coords);
-
-  useEffect(() => {
-    function coordinates(data) {
-      setCoords({
-        lat: data.coords.latitude.toString(),
-        lng: data.coords.longitude.toString(),
-      });
-    }
-    navigator.geolocation.getCurrentPosition(coordinates);
-  }, []);
-
+  console.log(process.env.REACT_APP_API_KEY);
   useEffect(() => {
     async function getAPIData() {
       try {
         const [quoteResponse, locationResponse] = await Promise.all([
           fetch('https://api.quotable.io/random'),
-          fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}&addressdetails=1`
-          ),
+          fetch(`https://api.ipdata.co?api-key=${apiKey}`),
         ]);
         const quoteData = await quoteResponse.json();
         const locationData = await locationResponse.json();
 
-        setQuote(quoteData);
-        setLocation(locationData);
+        setLocation({
+          city: locationData.city,
+          country: locationData.country_code,
+          timeSaving: locationData.time_zone.abbr,
+          timeZone: locationData.time_zone.name,
+        });
 
-        console.log(quoteData, locationData);
+        setQuote(quoteData);
       } catch (error) {
         console.log(error);
       }
     }
     getAPIData();
-  }, [coords]);
+  }, []);
 
   return (
     <APIRequestContext.Provider value={{ quote, location }}>
