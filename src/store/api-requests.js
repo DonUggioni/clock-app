@@ -1,9 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
-import { API_KEY } from './key';
 
 export const APIRequestContext = createContext({});
-
-const apiKey = API_KEY;
 
 function APIRequestProvider(props) {
   const [quote, setQuote] = useState('');
@@ -14,7 +11,7 @@ function APIRequestProvider(props) {
     try {
       const [quoteResponse, locationResponse] = await Promise.all([
         fetch('https://api.quotable.io/random'),
-        fetch(`https://api.ipdata.co?api-key=${apiKey}`),
+        fetch(`https://api.ipdata.co?api-key=${process.env.REACT_APP_API_KEY}`),
       ]);
       const quoteData = await quoteResponse.json();
       const locationData = await locationResponse.json();
