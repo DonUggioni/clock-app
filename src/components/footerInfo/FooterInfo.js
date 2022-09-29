@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { APIRequestContext } from '../../store/api-requests';
 import { ClickHandlerContext } from '../../store/click-handler-context';
 import dayjs from 'dayjs';
@@ -31,7 +31,7 @@ function FooterInfo() {
 
   return (
     <footer
-      className={hour >= 19 && hour <= 6 ? containerClassNight : containerClass}
+      className={hour >= 6 && hour < 19 ? containerClass : containerClassNight}
     >
       <div className={classes.data__container}>
         <span>Current timezone</span>

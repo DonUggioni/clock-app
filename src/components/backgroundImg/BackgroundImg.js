@@ -10,13 +10,13 @@ function BackgroundImg() {
 
   const containerDay = `${classes.container}`;
   const containerNight = `${classes.container} ${classes.night}`;
-  const timeOfDay = hour >= 6 && hour <= 19 ? containerDay : containerNight;
+  const timeOfDay = hour >= 6 && hour < 19 ? containerDay : containerNight;
 
   useEffect(() => {
-    setDayTime(timeOfDay);
+    setDayTime(dayTime);
   }, [dayTime]);
 
-  return <div className={dayTime} />;
+  return <div className={timeOfDay} />;
 }
 
 export default BackgroundImg;

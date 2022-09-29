@@ -3,7 +3,6 @@
 .container {
   max-width: 57.3rem;
   width: 100%;
-  max-height: 80rem;
   height: 85vh;
   margin: 5.6rem 16.5rem;
   transform: translateY(0);
@@ -11,6 +10,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (max-width: 73.25em) {
+    margin: 5.6rem 6.5rem;
+  }
+
+  @media screen and (max-width: 65em) {
+    margin: 8rem 6.4rem 6.4rem;
+  }
+
+  @media screen and (max-width: 43.75em) {
+    margin: 3rem 2.6rem 4rem;
+  }
 
   .quote__container {
     display: flex;
@@ -20,18 +31,30 @@
       max-width: 60rem;
       transition: all 0.3s;
 
+      @media screen and (max-width: 43.75em) {
+        max-width: 32rem;
+      }
+
       & p {
         font-weight: 400;
         opacity: 0.8;
         margin-bottom: 1.4rem;
         line-height: 1.6;
         font-size: variables.$text-fs-l;
+
+        @media screen and (max-width: 43.75em) {
+          font-size: variables.$text-fs-s;
+        }
       }
 
       & span {
         font-weight: 700;
         opacity: 0.8;
         letter-spacing: 0.5px;
+
+        @media screen and (max-width: 43.75em) {
+          font-size: variables.$text-fs-s;
+        }
       }
     }
   }
@@ -52,6 +75,15 @@
         font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 0.4rem;
+        font-size: 2rem;
+
+        @media screen and (max-width: 65em) {
+          font-size: 1.8rem;
+        }
+
+        @media screen and (max-width: 43.75em) {
+          font-size: 1.5rem;
+        }
       }
     }
 
@@ -63,8 +95,17 @@
         align-items: flex-end;
         justify-content: space-between;
         max-width: 111rem;
-        width: 80vw;
-        margin-right: 10rem;
+        width: 85vw;
+
+        @media screen and (max-width: 65em) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8rem;
+        }
+
+        @media screen and (max-width: 43.75em) {
+          gap: 6rem;
+        }
       }
 
       &-inner {
@@ -77,6 +118,14 @@
         font-size: variables.$h1-fs-l;
         line-height: 0.75;
         letter-spacing: 0.6rem;
+
+        @media screen and (max-width: 65em) {
+          font-size: variables.$h1-fs-m;
+        }
+
+        @media screen and (max-width: 43.75em) {
+          font-size: variables.$h1-fs-s;
+        }
       }
 
       & span {
@@ -84,6 +133,14 @@
         font-size: variables.$h2-fs-l;
         font-weight: 300;
         line-height: 0.7;
+
+        @media screen and (max-width: 65em) {
+          font-size: variables.$h2-fs-m;
+        }
+
+        @media screen and (max-width: 43.75em) {
+          font-size: variables.$text-fs-m;
+        }
       }
     }
 
@@ -91,12 +148,24 @@
       font-size: variables.$h3-fs-l;
       text-transform: uppercase;
       letter-spacing: 0.48rem;
+
+      @media screen and (max-width: 65em) {
+        font-size: variables.$h3-fs-m;
+      }
+
+      @media screen and (max-width: 43.75em) {
+        font-size: variables.$h3-fs-s;
+      }
     }
   }
 }
 
 .active {
   transform: translateY(-55%);
+
+  @media screen and (max-width: 65em) {
+    transform: translateY(-45%);
+  }
 
   .quote {
     opacity: 0;
