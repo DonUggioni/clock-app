@@ -6,7 +6,6 @@ import Greeting from '../greetingText/Greeting';
 
 import sunIcon from '../../assets/icons/icon-sun.svg';
 import moonIcon from '../../assets/icons/icon-moon.svg';
-import refreshIcon from '../../assets/icons/icon-refresh.svg';
 
 import classes from './MainInfoContainer.module.scss';
 

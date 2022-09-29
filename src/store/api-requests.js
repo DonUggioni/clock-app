@@ -8,6 +8,8 @@ const apiKey = API_KEY;
 function APIRequestProvider(props) {
   const [quote, setQuote] = useState('');
   const [location, setLocation] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
   async function getAPIData() {
     try {
       const [quoteResponse, locationResponse] = await Promise.all([
@@ -31,11 +33,15 @@ function APIRequestProvider(props) {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     getAPIData();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   }, []);
 
   return (
-    <APIRequestContext.Provider value={{ quote, location }}>
+    <APIRequestContext.Provider value={{ quote, location, isLoading }}>
       {props.children}
     </APIRequestContext.Provider>
   );
